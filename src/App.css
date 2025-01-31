@@ -1,0 +1,77 @@
+/* Contenedor principal de las películas */
+.movie-container {
+  display: flex;
+  flex-wrap: wrap; /* Permite que las tarjetas se muevan a una nueva fila si es necesario */
+  gap: 110px 30px; /* 30px entre columnas (horizontal), 50px entre filas (vertical) */
+  justify-content: center; /* Centra las tarjetas horizontalmente */
+  padding: 20px;
+}
+
+/* Contenedor de cada tarjeta */
+.movie-wrapper {
+  position: relative;
+  width: 220px; /* Tamaño fijo para que todas las tarjetas tengan la misma anchura */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+}
+/* Estilo de la tarjeta */
+.movie-card {
+  background-color: white;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  text-align: center;
+  width: 100%; /* Se adapta al ancho del contenedor */
+  height: 350px; /* Altura fija para uniformidad */
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between; /* Espaciado uniforme dentro de la tarjeta */
+}
+
+.movie-card img {
+  width: 100%;
+  height: 60%; /* Tamaño consistente para las imágenes */
+  object-fit: cover; /* Ajusta la imagen sin distorsionarla */
+  border-bottom: 2px solid #ddd;
+}
+
+.movie-card h2 {
+  font-size: 1.2rem;
+  color: #333;
+  margin: 10px 0;
+}
+
+.movie-card button {
+  background-color: #ff5252;
+  color: white;
+  border: none;
+  padding: 8px 16px;
+  margin: 10px 0;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+.movie-card button:hover {
+  background-color: #ff3030;
+}
+
+/* Estilo de los detalles de la película */
+.movie-details {
+  position: absolute;
+  top: 100%; /* Los detalles aparecen debajo de la tarjeta */
+  left: 0;
+  width: 100%;
+  background: rgba(247, 107, 107, 0.9);
+  color: white;
+  padding: 10px;
+  border-radius: 8px;
+  z-index: 10;
+}
+
+.movie-details p {
+  font-size: 0.9rem;
+  margin: 4px 0;
+  text-align: left;
+}
