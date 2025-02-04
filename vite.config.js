@@ -10,6 +10,6 @@ export default defineConfig({
     outDir: 'dist',
   },
   define: {
-    'process.env': {}
+   'process.env.VITE_API_URL': JSON.stringify(process.env.VITE_API_URL)
   }
 })
