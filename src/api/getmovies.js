@@ -1,19 +1,19 @@
 //const Api = process.env.REACT_APP_API_URL || "http://localhost:3000";  // Usa localhost en desarrollo
-//export const getMovies = () => fetch(`${Api}/movies`);
-const API_URL = import.meta.env.VITE_API_URL || "https://api-nest-movie.onrender.com"
+
+const Api = import.meta.env.VITE_API_URL || "https://api-nest-movie.onrender.com";
 
 export const getMovies = async () => {
   try {
-    const response = await fetch(`${API_URL}/movies`,{
-        credentials: "include",
-    })
+    const response = await fetch(`${Api}/movies`);
     if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`)
+      throw new Error(`Error ${response.status}: ${response.statusText}`);
     }
-    return await response.json()
+    const data = await response.json();
+    console.log("Datos de la API:", data); // Verifica la estructura
+    return Array.isArray(data) ? data : [];
   } catch (error) {
-    console.error("Error fetching movies:", error)
-    throw error
+    console.error("Error en getMovies:", error);
+    return [];
   }
-}
+};
 
