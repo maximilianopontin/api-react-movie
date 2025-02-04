@@ -2,11 +2,13 @@ import { useState, useEffect } from "react"
 import { getMovies } from "./api/getmovies"
 import MoviesCard from "./Card"
 import "./App.css"
+
 function App() {
   const [movies, setMovies] = useState([])
   const [selectedMovie, setSelectedMovie] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState(null)
+
   useEffect(() => {
     const fetchMovies = async () => {
       try {
@@ -20,17 +22,23 @@ function App() {
         setIsLoading(false);
       }
     };
+  
     fetchMovies();
   }, []);
+  
+  
   const handleMovieClick = (movie) => {
     setSelectedMovie((prev) => (prev && prev.id === movie.id ? null : movie))
   }
+
   if (isLoading) {
     return <div>Loading...</div>
   }
+
   if (error) {
     return <div>Error: {error}</div>
   }
+
   return (
     <div>
       <h1>Movies</h1>
@@ -55,5 +63,8 @@ function App() {
       </div>
     </div>
   );
+  
 }
+
 export default App
+
