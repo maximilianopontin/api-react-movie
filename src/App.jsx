@@ -8,21 +8,20 @@ function App() {
   const [selectedMovie, setSelectedMovie] = useState(null)
   const [isLoading, setIsLoading] = useState(true)
   const [error, setError] = useState(null)
-
+  
   useEffect(() => {
     const fetchMovies = async () => {
       try {
         const data = await getMovies();
-        console.log("Películas obtenidas:", data); // Para depuración
+        console.log("Películas obtenidas en el frontend:", data); // Verifica si llegan al frontend
         setMovies(data);
       } catch (error) {
-        console.error("Error fetching movies:", error);
+        console.error("Error al obtener películas:", error);
         setError(error.message);
       } finally {
         setIsLoading(false);
       }
     };
-  
     fetchMovies();
   }, []);
   
